@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/estilos.css" />
+  </head>
+
+  <body>
+    <section>
+      <input
+        class="boton-tirar"
+        type="button"
+        value="TIRAR DADOS"
+        id="tirar"
+        onclick="add()"
+      />
+    </section>
+    <section>
+      <img id="img1" class="dado-presentacion" src="img/dice1.png" alt="cldl" />
+      <img id="img2" class="dado-presentacion" src="img/dice1.png" alt="cldl" />
+    </section>
+    <section id="mensaje"></section>
+    <script>
+      function add() {
+        let at = document.getElementById("img1");
+        let at2 = document.getElementById("img2");
+
+        let dado1 = Math.floor(Math.random() * 6) + 1;
+        let dado2 = Math.floor(Math.random() * 6) + 1;
+
+        at.setAttribute("src", "img/dice" + dado1 + ".png");
+        at2.setAttribute("src", "img/dice" + dado2 + ".png");
+
+        if (dado1 === dado2) {
+          let at3 = document.getElementById("mensaje");
+          at3.innerText = "¡HAS GANADO!";
+          at3.style.color = "pink";
+          at3.style.background = "black";
+          at3.style.width = "fit-content"
+          at3.style.marginLeft = "38%";
+        }
+      }
+    </script>
+  </body>
+</html>
